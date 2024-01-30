@@ -11,32 +11,16 @@ ObjectListFrame.Parent = ScreenGui
 
 -- Создаем ScrollFrame для прокрутки списка
 local ScrollFrame = Instance.new("ScrollingFrame")
-ScrollFrame.Size = UDim2.new(1, 0, 0.8, 0)
-ScrollFrame.Position = UDim2.new(0, 0, 0.1, 0)
+ScrollFrame.Size = UDim2.new(1, 0, 1, 0)
 ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
 ScrollFrame.Parent = ObjectListFrame
-
--- Создаем кнопку закрытия GUI
-local CloseButton = Instance.new("TextButton")
-CloseButton.Size = UDim2.new(0.2, 0, 0.1, 0)
-CloseButton.Position = UDim2.new(0.4, 0, 0.9, 0)
-CloseButton.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
-CloseButton.Text = "Close"
-CloseButton.Parent = ObjectListFrame
-
--- Функция для закрытия GUI
-CloseButton.MouseButton1Click:Connect(function()
-    ScreenGui:Destroy()
-end)
 
 -- Получаем объект "Unit" из рабочей области
 local unit = workspace:WaitForChild("Unit")
 
--- Получаем все дочерние объекты объекта "Unit"
-local children = unit:GetChildren()
-
 -- Создаем TextLabels для каждого дочернего объекта "Unit" и добавляем их в ScrollFrame
-for i, child in ipairs(children) do
+local descendants = unit:GetChildren()
+for i, child in ipairs(descendants) do
     local ObjectTextLabel = Instance.new("TextLabel")
     ObjectTextLabel.Size = UDim2.new(1, 0, 0, 30)
     ObjectTextLabel.Position = UDim2.new(0, 0, 0, (i - 1) * 30)
