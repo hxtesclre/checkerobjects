@@ -21,6 +21,7 @@ local CloseButton = Instance.new("TextButton")
 CloseButton.Size = UDim2.new(0.2, 0, 0.1, 0)
 CloseButton.Position = UDim2.new(0.4, 0, 0.9, 0)
 CloseButton.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
+CloseButton.TextColor3 = Color3.new(1, 1, 1)
 CloseButton.Text = "Close"
 CloseButton.Parent = ObjectListFrame
 
