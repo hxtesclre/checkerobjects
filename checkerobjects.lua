@@ -33,8 +33,10 @@ for i, child in ipairs(children) do
     
     -- Обновляем размер CanvasSize, чтобы вместить все объекты
     ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, i * 30)
-    
-    -- Применяем код к каждому объекту "Unit"
+end
+
+-- Применяем код к каждому объекту "Unit"
+for _, child in ipairs(children) do
     local args = {
         [1] = "Upgrade",
         [2] = child
