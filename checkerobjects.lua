@@ -19,10 +19,10 @@ ScrollFrame.Parent = ObjectListFrame
 local unit = workspace:WaitForChild("Unit")
 
 -- Получаем все дочерние объекты объекта "Unit"
-local descendants = unit:GetDescendants()
+local children = unit:GetChildren()
 
 -- Создаем TextLabels для каждого дочернего объекта "Unit" и добавляем их в ScrollFrame
-for i, child in ipairs(descendants) do
+for i, child in ipairs(children) do
     local ObjectTextLabel = Instance.new("TextLabel")
     ObjectTextLabel.Size = UDim2.new(1, 0, 0, 30)
     ObjectTextLabel.Position = UDim2.new(0, 0, 0, (i - 1) * 30)
@@ -33,13 +33,11 @@ for i, child in ipairs(descendants) do
     
     -- Обновляем размер CanvasSize, чтобы вместить все объекты
     ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, i * 30)
-end
-
--- Применяем код к каждому объекту "Unit"
-for _, descendant in ipairs(descendants) do
+    
+    -- Применяем код к каждому объекту "Unit"
     local args = {
         [1] = "Upgrade",
-        [2] = descendant
+        [2] = child
     }
 
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Server"):InvokeServer(unpack(args))
