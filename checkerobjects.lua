@@ -16,10 +16,10 @@ ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
 ScrollFrame.Parent = ObjectListFrame
 
 -- Получаем объект "Unit" из рабочей области
-local unit = workspace:WaitForChild("Unit")
+local unit = workspace:WaitForChild("Troops")
 
 -- Получаем все дочерние объекты объекта "Unit"
-local children = unit:GetChildren()
+local children = troops:GetChildren()
 
 -- Создаем TextLabels для каждого дочернего объекта "Unit" и добавляем их в ScrollFrame
 for i, child in ipairs(children) do
