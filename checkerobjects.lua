@@ -43,4 +43,5 @@ for _, descendant in ipairs(descendants) do
     }
 
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Server"):InvokeServer(unpack(args))
+    wait(1)
 end
