@@ -18,9 +18,11 @@ ScrollFrame.Parent = ObjectListFrame
 -- Получаем объект "Unit" из рабочей области
 local unit = workspace:WaitForChild("Unit")
 
+-- Получаем все дочерние объекты объекта "Unit"
+local children = unit:GetChildren()
+
 -- Создаем TextLabels для каждого дочернего объекта "Unit" и добавляем их в ScrollFrame
-local descendants = unit:GetChildren()
-for i, child in ipairs(descendants) do
+for i, child in ipairs(children) do
     local ObjectTextLabel = Instance.new("TextLabel")
     ObjectTextLabel.Size = UDim2.new(1, 0, 0, 30)
     ObjectTextLabel.Position = UDim2.new(0, 0, 0, (i - 1) * 30)
